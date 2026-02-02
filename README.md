@@ -1,67 +1,30 @@
-# 🚀 Quantara - 45 Day Development Journey
+# React + TypeScript + Vite
 
-> Building a production-ready AI-powered analytics platform from scratch
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-[![React](https://img.shields.io/badge/React-18.0-blue.svg)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![Days](https://img.shields.io/badge/Days-1%20%2F%2045-green.svg)](#)
-[![Commits](https://img.shields.io/github/commit-activity/m/YOUR-USERNAME/quantara-45day-journey)](https://github.com/YOUR-USERNAME/quantara-45day-journey/commits/main)
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 📅 Progress Tracker
+## Expanding the ESLint configuration
 
-| Day | Topic | Status | Links | Hours |
-|-----|-------|--------|-------|-------|
-| 1 | React Basics | ✅ | [Notes](./CHINNU_FOLDER/DAY_01.md) \| [Code](./day-01) | 4h |
-| 2 | CSS & Styling | 🔄 | - | - |
-| 3-45 | Coming Soon | ⏳ | - | - |
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-**Legend:** ✅ Completed | 🔄 In Progress | ⏳ Planned
+- Configure the top-level `parserOptions` property like this:
 
----
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-## 🎯 Project Overview
-
-### What is Quantara?
-
-An enterprise-grade analytics platform featuring:
-
-- 📊 **63 React Components** - Full-featured pages
-- 🔐 **21 User Roles** - Advanced RBAC system
-- 🎨 **3 Theme Modes** - Dark, Light, Neon
-- 🌍 **10 Languages** - Multi-language support
-- 📈 **Real-time Dashboards** - Interactive data visualization
-- 🤖 **AI Integration** - Smart insights & predictions
-- 🎥 **Video Recording** - Screen & webcam capture
-- 📁 **File Management** - Drag-drop uploads
-- 👥 **Team Collaboration** - Real-time features
-- 🔌 **Database Connectors** - PostgreSQL, MySQL, MongoDB
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React 18** - UI Framework
-- **TypeScript** - Type Safety
-- **Vite** - Build Tool
-- **Tailwind CSS** - Styling
-- **Framer Motion** - Animations
-- **shadcn/ui** - Component Library
-
-### State Management
-- React Context API
-- Session Storage
-- Local Storage
-
-### Additional Libraries
-- `react-router-dom` - Routing
-- `recharts` - Data Visualization
-- `@dnd-kit` - Drag & Drop
-- `react-dropzone` - File Uploads
-- `lucide-react` - Icons
-- `date-fns` - Date Utilities
-- `three.js` - 3D Graphics
-
----
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
